@@ -9,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "eslint": "./node_modules/.bin/eslint --ext .jsx --ignore-path .gitignore .; exit 0",
     "prepush": "npm run eslint",
-    "build": "NODE_ENV=production webpack --config ./webpack.config.js",
+    "build": "webpack --config ./webpack.config.js --mode production",
     "deploy": "gh-pages -d dist"
   },
   "author": "bfbechlin",
