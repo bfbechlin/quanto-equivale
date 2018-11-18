@@ -1,9 +1,14 @@
 const options = [
-  { id: 123, label: 'Hospitais' },
-  { id: 124, label: 'Escolas' },
-].map(suggestion => ({
-  value: suggestion.label,
-  label: suggestion.label,
-}));
+  {
+    id: 1,
+    label: 'Hospitais',
+    description: 'Gasto com hospitais testando as coisas tudo testeszan do adads mesas asdjia adsadsds.',
+  },
+  {
+    id: 2,
+    label: 'Escolas',
+    description: '"Gasto com escolas testeszan do adads mesas asdjia adsadsds asd  asdiasdas asd asdadssda."',
+  },
+];
 
 export default options;

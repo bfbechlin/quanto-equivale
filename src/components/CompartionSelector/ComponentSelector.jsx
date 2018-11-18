@@ -3,6 +3,7 @@ import Select from 'react-select';
 import { emphasize } from '@material-ui/core/styles/colorManipulator';
 import { withStyles } from '@material-ui/core/styles';
 import components from './InternalComponents';
+import DescriptionViewer from './DescriptionViewer';
 
 const styles = theme => ({
   root: {
@@ -50,6 +51,9 @@ const styles = theme => ({
   divider: {
     height: theme.spacing.unit * 2,
   },
+  description: {
+    padding: `${2 * theme.spacing.unit}px ${3 * theme.spacing.unit}px`,
+  },
 });
 
 const ComponentSelector = ({
@@ -64,6 +68,7 @@ const ComponentSelector = ({
       },
     }),
   };
+  console.log(value);
   return (
     <div className={classes.root}>
       <Select
@@ -75,6 +80,11 @@ const ComponentSelector = ({
         onChange={onChange}
         placeholder={name}
       />
+      <div className={classes.description}>
+        <DescriptionViewer
+          text={value ? value.description : ''}
+        />
+      </div>
     </div>
   );
 };

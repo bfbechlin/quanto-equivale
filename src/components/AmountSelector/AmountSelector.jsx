@@ -26,13 +26,13 @@ const NumberFormatCustom = ({ inputRef, onChange, ...other }) => (
 );
 
 const AmountSelector = ({
-  name, handleChange, value, classes,
+  name, onChange, value, classes,
 }) => (
   <div className={classes.root}>
     <TextField
       label={name}
       value={value}
-      onChange={handleChange}
+      onChange={onChange}
       id="formatted-numberformat-input"
       InputProps={{
         inputComponent: NumberFormatCustom,

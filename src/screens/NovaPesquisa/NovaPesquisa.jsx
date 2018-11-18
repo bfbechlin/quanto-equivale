@@ -43,6 +43,7 @@ class NovaPequisa extends React.Component {
   };
 
   onAmountChange = (event) => {
+    console.log(event.target.value);
     this.setState({ amount: event.target.value });
   };
 
@@ -52,7 +53,8 @@ class NovaPequisa extends React.Component {
 
   onSubmit = () => {
     const { history } = this.props;
-    history.push('/pesquisa/12');
+    const { comparation, amount } = this.state;
+    history.push(`/pesquisa/${comparation.id}?amount=${amount}`);
   };
 
   render() {
@@ -69,7 +71,7 @@ class NovaPequisa extends React.Component {
               classes={{ root: classes.item }}
               name="Valor monetário"
               value={amount}
-              onChange={this.handleChange}
+              onChange={this.onAmountChange}
             />
             <ComparationSelector
               classes={{ root: classes.item }}
@@ -82,6 +84,7 @@ class NovaPequisa extends React.Component {
               className={classes.button}
               variant="contained"
               color="primary"
+              disabled={!(amount && comparation)}
               onClick={this.onSubmit}
             >
               <DoneIcon />
