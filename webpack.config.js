@@ -1,15 +1,16 @@
+const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const DashboardPlugin = require('webpack-dashboard/plugin');
 
 const dashboardPlugin = new DashboardPlugin();
 
 const htmlWebpackPlugin = new HtmlWebPackPlugin({
-  template: `${__dirname}/public/index.html`,
+  template: path.resolve(__dirname, 'public/index.html'),
   filename: './index.html',
 });
 
 module.exports = {
-  entry: './src/index.jsx',
+  entry: path.resolve(__dirname, 'src/index.jsx'),
   module: {
     rules: [
       {
@@ -19,19 +20,31 @@ module.exports = {
           loader: 'babel-loader',
         },
       },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[path][name]-[hash:8].[ext]',
+            },
+          },
+        ],
+      },
     ],
   },
   resolve: {
     extensions: ['.js', '.jsx'],
   },
   output: {
-    path: `${__dirname}/dist`,
-    publicPath: './',
+    path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
   },
   devServer: {
-    contentBase: './dist',
     historyApiFallback: true,
+  },
+  watchOptions: {
+    poll: true,
   },
   plugins: [
     dashboardPlugin,
