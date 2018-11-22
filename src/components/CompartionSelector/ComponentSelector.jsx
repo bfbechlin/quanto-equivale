@@ -68,7 +68,6 @@ const ComponentSelector = ({
       },
     }),
   };
-  console.log(value);
   return (
     <div className={classes.root}>
       <Select
@@ -81,9 +80,11 @@ const ComponentSelector = ({
         placeholder={name}
       />
       <div className={classes.description}>
-        <DescriptionViewer
-          text={value ? value.description : ''}
-        />
+        {value && (
+          <DescriptionViewer
+            text={value.description}
+          />
+        )}
       </div>
     </div>
   );

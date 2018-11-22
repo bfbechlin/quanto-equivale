@@ -9,37 +9,41 @@ const styles = theme => ({
   },
 });
 
-const NumberFormatCustom = ({ inputRef, onChange, ...other }) => (
-  <NumberFormat
-    {...other}
-    getInputRef={inputRef}
-    onValueChange={(values) => {
-      onChange({
-        target: {
-          value: values.value,
-        },
-      });
-    }}
-    thousandSeparator
-    prefix="R$"
-  />
-);
-
-const AmountSelector = ({
-  name, onChange, value, classes,
-}) => (
-  <div className={classes.root}>
-    <TextField
-      label={name}
-      value={value}
-      onChange={onChange}
-      id="formatted-numberformat-input"
-      InputProps={{
-        inputComponent: NumberFormatCustom,
+function NumberFormatCustom({ inputRef, onChange, ...other }) {
+  return (
+    <NumberFormat
+      {...other}
+      getInputRef={inputRef}
+      onValueChange={(values) => {
+        onChange({
+          target: {
+            value: values.value,
+          },
+        });
       }}
-      fullWidth
+      thousandSeparator
+      prefix="R$"
     />
-  </div>
-);
+  );
+}
+
+function AmountSelector({
+  name, onChange, value, classes,
+}) {
+  return (
+    <div className={classes.root}>
+      <TextField
+        label={name}
+        value={value}
+        onChange={onChange}
+        id="formatted-numberformat-input"
+        InputProps={{
+          inputComponent: NumberFormatCustom,
+        }}
+        fullWidth
+      />
+    </div>
+  );
+}
 
 export default withStyles(styles)(AmountSelector);

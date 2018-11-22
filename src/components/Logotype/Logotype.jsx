@@ -13,10 +13,12 @@ const styles = theme => ({
   },
 });
 
-const Logotype = ({ classes }) => (
-  <div className={classes.root}>
-    <img className={classes.img} src={Logo} alt="Quanto Equivale" />
-  </div>
-);
+function Logotype({ classes }) {
+  return (
+    <div className={classes.root}>
+      <img className={classes.img} src={Logo} alt="Quanto Equivale" />
+    </div>
+  );
+}
 
 export default withStyles(styles, { withTheme: true })(Logotype);

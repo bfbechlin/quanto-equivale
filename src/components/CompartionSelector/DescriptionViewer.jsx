@@ -1,33 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Typography from '@material-ui/core/Typography';
 import Collapse from '@material-ui/core/Collapse';
 
-const TIMEOUT = 250;
+function useDelayText(text, TIMEOUT) {
+  const [displayedText, setDisplayedText] = useState('');
+  const [show, setShow] = useState(false);
 
-class DescriptionViewer extends React.Component {
-  state = {
-    open: true,
-    text: '',
+  useEffect(() => {
+    setTimeout(() => {
+      setDisplayedText(text);
+      setShow(true);
+    }, TIMEOUT);
+    return () => { setShow(false); };
+  }, [text]);
+
+  return {
+    displayedText,
+    show,
   };
+}
 
-  componentDidUpdate(prevProps) {
-    const { text } = this.props;
-    if (text !== prevProps.text) {
-      this.setState({ open: false });
-      setTimeout(() => this.setState({ open: true, text }), TIMEOUT);
-    }
-  }
+function DescriptionViewer({ text, TIMEOUT = 250 }) {
+  const { displayedText, show } = useDelayText(text, TIMEOUT);
 
-  render() {
-    const { open, text } = this.state;
-    return (
-      <Collapse in={open} unmountOnExit timeout={TIMEOUT}>
-        <Typography variant="body1">
-          {text}
-        </Typography>
-      </Collapse>
-    );
-  }
+  return (
+    <Collapse in={show} unmountOnExit mountOnEnter timeout={TIMEOUT}>
+      <Typography variant="body1">
+        {displayedText}
+      </Typography>
+    </Collapse>
+  );
 }
 
 export default DescriptionViewer;
