@@ -15,7 +15,7 @@ const styles = theme => ({
 function Logotype({ classes }) {
   return (
     <div className={classes.root}>
-      <img className={classes.img} src="/assets/logo.png" alt="Quanto Equivale" />
+      <img className={classes.img} src="assets/logo.png" alt="Quanto Equivale" />
     </div>
   );
 }

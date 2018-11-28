@@ -5,7 +5,7 @@ const options = [
     description: 'Gasto com hospitais testando as coisas tudo testeszan do adads mesas asdjia adsadsds.',
     link: '',
     yearlyCost: 500000,
-    img: '/assets/hospital.jpg',
+    img: 'assets/hospital.jpg',
   },
   {
     id: '2',
@@ -13,7 +13,7 @@ const options = [
     description: '"Gasto com escolas testeszan do adads mesas asdjia adsadsds asd  asdiasdas asd asdadssda."',
     link: '',
     yearlyCost: 250000,
-    img: '/assets/hospital.jpg',
+    img: 'assets/hospital.jpg',
   },
 ];
 
