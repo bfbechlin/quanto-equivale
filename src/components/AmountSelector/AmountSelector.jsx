@@ -37,6 +37,7 @@ function AmountSelector({
         value={value}
         onChange={onChange}
         id="formatted-numberformat-input"
+        type="tel"
         InputProps={{
           inputComponent: NumberFormatCustom,
         }}
