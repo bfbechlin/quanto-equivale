@@ -1,6 +1,5 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import Logo from '../../assets/logo.png';
 
 const styles = theme => ({
   root: {
@@ -16,7 +15,7 @@ const styles = theme => ({
 function Logotype({ classes }) {
   return (
     <div className={classes.root}>
-      <img className={classes.img} src={Logo} alt="Quanto Equivale" />
+      <img className={classes.img} src="/assets/logo.png" alt="Quanto Equivale" />
     </div>
   );
 }

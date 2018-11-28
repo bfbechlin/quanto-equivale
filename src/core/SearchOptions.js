@@ -4,15 +4,21 @@ const options = [
     label: 'Hospitais',
     description: 'Gasto com hospitais testando as coisas tudo testeszan do adads mesas asdjia adsadsds.',
     link: '',
-    img: '',
+    yearlyCost: 500000,
+    img: '/assets/hospital.jpg',
   },
   {
     id: '2',
     label: 'Escolas',
     description: '"Gasto com escolas testeszan do adads mesas asdjia adsadsds asd  asdiasdas asd asdadssda."',
     link: '',
-    img: '',
+    yearlyCost: 250000,
+    img: '/assets/hospital.jpg',
   },
 ];
+
+export const outputCost = (amount, seracg) => {
+
+};
 
 export default options;

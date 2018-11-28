@@ -15,21 +15,20 @@ const styles = theme => (
     root: {
       padding: `${5 * theme.spacing.unit}px ${2 * theme.spacing.unit}px`,
     },
+    content: {
+      width: '100%',
+    },
     paper: {
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
       padding: `${4 * theme.spacing.unit}px ${2 * theme.spacing.unit}px`,
-      width: '100%',
     },
     logo: {
       width: 250,
     },
     item: {
       padding: `${1 * theme.spacing.unit}px 0`,
-    },
-    button: {
-      margin: theme.spacing.unit,
     },
   }
 );
@@ -43,8 +42,8 @@ function NovaPequisa({ classes, history }) {
   };
 
   return (
-    <Grid container className={classes.root} spacing={16} justify="center">
-      <Grid item xs={10} md={4}>
+    <Grid container className={classes.root} spacing={0} justify="center">
+      <Grid className={classes.content} item sm={10} md={4}>
         <Paper elevation={2} className={classes.paper}>
           <Logotype
             classes={{ root: classes.logo }}
@@ -63,20 +62,19 @@ function NovaPequisa({ classes, history }) {
             onChange={newCompartion => setComparation(newCompartion)}
           />
           <Button
-            className={classes.button}
             variant="contained"
             color="primary"
             disabled={!(amount && comparation)}
             onClick={onSubmit}
+            fullWidth
           >
             <DoneIcon />
-              Pesquisar
+            Pesquisar
           </Button>
         </Paper>
       </Grid>
     </Grid>
   );
 }
-
 
 export default withStyles(styles)(withRouter(NovaPequisa));

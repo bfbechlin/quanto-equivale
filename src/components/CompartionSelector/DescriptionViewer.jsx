@@ -25,7 +25,7 @@ function DescriptionViewer({ text, TIMEOUT = 250 }) {
 
   return (
     <Collapse in={show} unmountOnExit mountOnEnter timeout={TIMEOUT}>
-      <Typography variant="body1">
+      <Typography variant="body1" align="justify" gutterBottom>
         {displayedText}
       </Typography>
     </Collapse>

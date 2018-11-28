@@ -38,7 +38,7 @@ function Pequisa({
               searchOption={searchOption}
             />)
           : (
-            <Typography variant="h1">
+            <Typography variant="display4">
             Pesquisa inválida
             </Typography>)
         }

@@ -34,7 +34,7 @@ function DescriptionCard({ classes, searchOption }) {
           title={label}
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography gutterBottom variant="headline" component="h2">
             {label}
           </Typography>
           <Typography component="p">

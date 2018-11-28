@@ -7,8 +7,6 @@ import DescriptionViewer from './DescriptionViewer';
 
 const styles = theme => ({
   root: {
-    flexGrow: 1,
-    position: 'relative',
     width: '100%',
   },
   input: {
@@ -52,7 +50,8 @@ const styles = theme => ({
     height: theme.spacing.unit * 2,
   },
   description: {
-    padding: `${2 * theme.spacing.unit}px ${3 * theme.spacing.unit}px`,
+    padding: `${2 * theme.spacing.unit}px ${1 * theme.spacing.unit}px`,
+    display: 'block',
   },
 });
 

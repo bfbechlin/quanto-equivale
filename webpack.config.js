@@ -1,13 +1,15 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
-const DashboardPlugin = require('webpack-dashboard/plugin');
-
-const dashboardPlugin = new DashboardPlugin();
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const htmlWebpackPlugin = new HtmlWebPackPlugin({
   template: path.resolve(__dirname, 'public/index.html'),
   filename: './index.html',
 });
+
+const copyWebpackPlugin = CopyWebpackPlugin([
+  { from: path.resolve(__dirname, 'src/assets'), to: 'assets' },
+]);
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/index.jsx'),
@@ -20,17 +22,6 @@ module.exports = {
           loader: 'babel-loader',
         },
       },
-      {
-        test: /\.(png|svg|jpg|gif)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[path][name]-[hash:8].[ext]',
-            },
-          },
-        ],
-      },
     ],
   },
   resolve: {
@@ -40,14 +31,11 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
   },
-  devServer: {
-    historyApiFallback: true,
-  },
   watchOptions: {
     poll: true,
   },
   plugins: [
-    dashboardPlugin,
     htmlWebpackPlugin,
+    copyWebpackPlugin,
   ],
 };
