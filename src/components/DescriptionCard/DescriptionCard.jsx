@@ -9,10 +9,9 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import ShareIcon from '@material-ui/icons/Share';
 
-
 const styles = {
   card: {
-    maxWidth: 345,
+    width: '100%',
   },
   media: {
     // ⚠️ object-fit is not supported by IE 11.
@@ -20,8 +19,8 @@ const styles = {
   },
 };
 
-function DescriptionCard({ classes, searchOption }) {
-  const { img, label, description } = searchOption;
+function DescriptionCard({ classes, searchOption, message }) {
+  const { img, label } = searchOption;
   return (
     <Card className={classes.card}>
       <CardActionArea>
@@ -38,7 +37,7 @@ function DescriptionCard({ classes, searchOption }) {
             {label}
           </Typography>
           <Typography component="p">
-            {description}
+            {message}
           </Typography>
         </CardContent>
       </CardActionArea>

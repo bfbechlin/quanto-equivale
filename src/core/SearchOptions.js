@@ -1,24 +1,60 @@
+import format from 'string-format';
+import currencyFormatter from 'currency-formatter';
+
 const options = [
   {
     id: '1',
     label: 'Hospitais',
     description: 'Gasto com hospitais testando as coisas tudo testeszan do adads mesas asdjia adsadsds.',
     link: '',
-    yearlyCost: 500000,
+    message: 'Com {amount} é possível sustentar {quantity} {subject} pelo período de {period}.',
+    subject: {
+      single: 'hospital',
+      multi: 'hospitais',
+    },
+    monthlyCost: 100000,
     img: 'assets/hospital.jpg',
   },
   {
     id: '2',
     label: 'Escolas',
-    description: '"Gasto com escolas testeszan do adads mesas asdjia adsadsds asd  asdiasdas asd asdadssda."',
+    description: 'Gasto com escolas testeszan do adads mesas asdjia adsadsds asd  asdiasdas asd asdadssda.',
     link: '',
-    yearlyCost: 250000,
-    img: 'assets/hospital.jpg',
+    message: 'Com {amount} é possível sustentar {quantity} {subject} pelo período de {period}.',
+    subject: {
+      single: 'escola',
+      multi: 'escolas',
+    },
+    monthlyCost: 50000,
+    img: 'assets/escola.jpg',
   },
 ];
 
-export const outputCost = (amount, seracg) => {
+const outputCost = (amount, monthlyCost) => {
+  const quantity = Math.ceil(amount / (5 * 12 * monthlyCost));
+  const period = Math.floor(amount / (quantity * monthlyCost));
+  const years = Math.floor(period / 12);
+  const months = period - years * 12;
+  return {
+    quantity,
+    period: {
+      years,
+      months,
+    },
+  };
+};
 
+export const outputMessage = (amount, searchOption) => {
+  const { quantity, period } = outputCost(amount, searchOption.monthlyCost);
+  const { years, months } = period;
+  return format(searchOption.message, {
+    amount: currencyFormatter.format(amount, { locale: 'pt-BR' }),
+    quantity,
+    subject: (quantity === 1 ? searchOption.subject.single : searchOption.subject.multi),
+    period: `${years > 0 ? (years === 1 ? '1 ano' : `${years} ano`) : ''}
+      ${months > 0 ? (years > 0 ? ' e ' : '') : (years === 0 && '0 meses')}
+      ${months > 0 ? (months === 1 ? '1 mês' : `${months} meses`) : ''}`,
+  });
 };
 
 export default options;

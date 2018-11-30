@@ -1,21 +1,25 @@
 import React from 'react';
+import queryString from 'query-string';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import DescriptionCard from '../../components/DescriptionCard';
-import options from '../../core/SearchOptions';
+import options, { outputMessage } from '../../core/SearchOptions';
 
 const styles = theme => (
   {
     root: {
       padding: `${5 * theme.spacing.unit}px ${2 * theme.spacing.unit}px`,
     },
+    content: {
+      width: '100%',
+    },
     item: {
       padding: `${1 * theme.spacing.unit}px 0`,
     },
     button: {
-      margin: theme.spacing.unit,
+      marginTop: 4 * theme.spacing.unit,
     },
   }
 );
@@ -24,30 +28,30 @@ function Pequisa({
   classes, history, match, location,
 }) {
   const searchOption = options.find(({ id }) => id === match.params.id);
-
+  const { amount } = queryString.parse(location.search);
   const redirectNovaPesquisa = () => {
     history.push('/nova-pesquisa');
   };
 
   return (
     <Grid container className={classes.root} spacing={16} justify="center">
-      <Grid item xs={10} md={4}>
-        {searchOption
+      <Grid className={classes.content} item xs={10} md={4} lg={3}>
+        {searchOption && amount
           ? (
             <DescriptionCard
               searchOption={searchOption}
+              message={outputMessage(amount, searchOption)}
             />)
           : (
             <Typography variant="display4">
             Pesquisa inválida
             </Typography>)
         }
-      </Grid>
-      <Grid item xs={10} md={4}>
         <Button
-          className={classes.button}
           variant="contained"
+          className={classes.button}
           color="primary"
+          fullWidth
           onClick={redirectNovaPesquisa}
         >
           Nova Pesquisa
@@ -56,6 +60,5 @@ function Pequisa({
     </Grid>
   );
 }
-
 
 export default withStyles(styles)(Pequisa);

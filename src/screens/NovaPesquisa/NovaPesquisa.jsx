@@ -43,8 +43,8 @@ function NovaPequisa({ classes, history }) {
 
   return (
     <Grid container className={classes.root} spacing={0} justify="center">
-      <Grid className={classes.content} item sm={10} md={4}>
-        <Paper elevation={2} className={classes.paper}>
+      <Grid className={classes.content} item xs={10} md={4} lg={3}>
+        <Paper elevation={4} className={classes.paper}>
           <Logotype
             classes={{ root: classes.logo }}
           />
