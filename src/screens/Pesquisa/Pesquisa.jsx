@@ -43,8 +43,8 @@ function Pequisa({
               message={outputMessage(amount, searchOption)}
             />)
           : (
-            <Typography variant="display4">
-            Pesquisa inválida
+            <Typography variant="display2" align="center">
+            Pesquisa Inválida
             </Typography>)
         }
         <Button

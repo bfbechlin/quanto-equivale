@@ -3,7 +3,7 @@ import currencyFormatter from 'currency-formatter';
 
 const options = [
   {
-    id: '1',
+    id: 'hospital',
     label: 'Hospitais',
     description: 'Gasto com hospitais testando as coisas tudo testeszan do adads mesas asdjia adsadsds.',
     link: '',
@@ -16,7 +16,7 @@ const options = [
     img: 'assets/hospital.jpg',
   },
   {
-    id: '2',
+    id: 'escola',
     label: 'Escolas',
     description: 'Gasto com escolas testeszan do adads mesas asdjia adsadsds asd  asdiasdas asd asdadssda.',
     link: '',
