@@ -9,7 +9,7 @@ export default (title, pathResolver = null) => (
       componentDidMount() {
         const { location } = this.props;
         const path = pathResolver ? pathResolver(this.props)
-          : location.pathname;
+          : location.pathname + location.search;
         ReactGA.pageview(path, [], title);
       }
 

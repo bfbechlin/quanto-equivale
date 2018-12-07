@@ -5,10 +5,12 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import DoneIcon from '@material-ui/icons/Done';
+import { v4 } from 'uuid';
 import AmountSelector from '../../components/AmountSelector';
 import ComparationSelector from '../../components/CompartionSelector';
 import Logotype from '../../components/Logotype';
 import options from '../../core/SearchOptions';
+import { EVENTS, newGAEvent } from '../../core/GoogleAnalytics';
 
 const styles = theme => (
   {
@@ -38,7 +40,8 @@ function NovaPequisa({ classes, history }) {
   const [comparation, setComparation] = useState('');
 
   const onSubmit = () => {
-    history.push(`/pesquisa/${comparation.id}?amount=${amount}`);
+    newGAEvent(EVENTS.SEARCH_CREATION, comparation.id, Number(amount));
+    history.push(`/pesquisa/${comparation.id}?amount=${amount}&track=${v4()}`);
   };
 
   return (

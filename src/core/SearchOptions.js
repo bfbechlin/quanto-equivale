@@ -51,9 +51,10 @@ export const outputMessage = (amount, searchOption) => {
     amount: currencyFormatter.format(amount, { locale: 'pt-BR' }),
     quantity,
     subject: (quantity === 1 ? searchOption.subject.single : searchOption.subject.multi),
-    period: `${years > 0 ? (years === 1 ? '1 ano' : `${years} ano`) : ''}
-      ${months > 0 ? (years > 0 ? ' e ' : '') : (years === 0 && '0 meses')}
-      ${months > 0 ? (months === 1 ? '1 mês' : `${months} meses`) : ''}`,
+    period: [
+      `${years > 0 ? (years === 1 ? '1 ano' : `${years} anos`) : ''}`,
+      `${months > 0 ? (months === 1 ? '1 mês' : `${months} meses`) : ''}`,
+    ].filter(Boolean).join(' e ') || '0 meses',
   });
 };
 
