@@ -6,8 +6,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import ShareIcon from '@material-ui/icons/Share';
+import { FacebookShareButton, WhatsAppShareButton } from './ShareButtons';
 
 const styles = {
   card: {
@@ -19,7 +18,9 @@ const styles = {
   },
 };
 
-function DescriptionCard({ classes, searchOption, message }) {
+function DescriptionCard({
+  classes, searchOption, message, shareLink,
+}) {
   const { img, label } = searchOption;
   return (
     <Card className={classes.card}>
@@ -42,9 +43,8 @@ function DescriptionCard({ classes, searchOption, message }) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <IconButton aria-label="Share">
-          <ShareIcon />
-        </IconButton>
+        <FacebookShareButton link={shareLink} />
+        <WhatsAppShareButton link={shareLink} />
       </CardActions>
     </Card>
   );

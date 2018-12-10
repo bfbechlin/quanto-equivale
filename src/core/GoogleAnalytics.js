@@ -20,8 +20,12 @@ export const EVENTS = {
   SEARCH_CREATION: 'search - creation',
   SEARCH_VIEW: 'search - view',
   SEARCH_TRACK: 'search - track',
-  SHARE_FACEBOOK: 'share - facebook',
-  SHARE_WHATSAPP: 'share - whatsapp',
+  SHARE: 'share',
+};
+
+export const SHARE_TYPES = {
+  FACEBOOK: 'facebook',
+  WHATSAPP: 'whatsapp',
 };
 
 export function getUser() {

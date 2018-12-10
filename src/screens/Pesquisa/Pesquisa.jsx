@@ -41,6 +41,7 @@ function Pequisa({
             <DescriptionCard
               searchOption={searchOption}
               message={outputMessage(amount, searchOption)}
+              shareLink={window.location.href}
             />)
           : (
             <Typography variant="display2" align="center">
