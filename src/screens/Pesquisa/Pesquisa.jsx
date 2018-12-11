@@ -28,7 +28,8 @@ function Pequisa({
   classes, history, match, location,
 }) {
   const searchOption = options.find(({ id }) => id === match.params.id);
-  const { amount } = queryString.parse(location.search);
+  const amount = Number(queryString.parse(location.search).amount);
+  console.log(amount);
   const redirectNovaPesquisa = () => {
     history.push('/nova-pesquisa');
   };
