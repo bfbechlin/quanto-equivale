@@ -3,23 +3,23 @@ import currencyFormatter from 'currency-formatter';
 
 const options = [
   {
-    id: 'hospital',
-    label: 'Hospitais',
-    description: 'Gasto com hospitais testando as coisas tudo testeszan do adads mesas asdjia adsadsds.',
-    link: '',
-    message: 'Com {amount} é possível sustentar {quantity} {subject} pelo período de {period}.',
+    id: 'saude',
+    label: 'Saúde',
+    description: 'Brasil gasta R$ 3,48 por dia com a saúde de cada habitante, diz Conselho Federal de Medicina (CFM).',
+    link: 'http://agenciabrasil.ebc.com.br/saude/noticia/2018-11/brasil-gasta-r-348-por-dia-com-saude-de-cada-habitante-diz-cfm',
+    message: 'Com {amount} é possível cobrir o investimento de {quantity} {subject} em saúde pelo período de {period}.',
     subject: {
-      single: 'hospital',
-      multi: 'hospitais',
+      single: 'habibitante',
+      multi: 'habitantes',
     },
-    monthlyCost: 100000,
-    img: 'assets/hospital.jpg',
+    monthlyCost: 3.48 * 30,
+    img: 'assets/saude.jpg',
   },
   {
     id: 'escola',
     label: 'Escolas',
     description: 'Gasto com escolas testeszan do adads mesas asdjia adsadsds asd  asdiasdas asd asdadssda.',
-    link: '',
+    link: 'http://agenciabrasil.ebc.com.br/saude/noticia/2018-11/brasil-gasta-r-348-por-dia-com-saude-de-cada-habitante-diz-cfm',
     message: 'Com {amount} é possível sustentar {quantity} {subject} pelo período de {period}.',
     subject: {
       single: 'escola',
