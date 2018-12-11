@@ -29,7 +29,6 @@ function Pequisa({
 }) {
   const searchOption = options.find(({ id }) => id === match.params.id);
   const amount = Number(queryString.parse(location.search).amount);
-  console.log(amount);
   const redirectNovaPesquisa = () => {
     history.push('/nova-pesquisa');
   };
