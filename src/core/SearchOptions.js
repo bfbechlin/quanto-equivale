@@ -31,7 +31,7 @@ const options = [
 ];
 
 const outputCost = (amount, monthlyCost) => {
-  const quantity = Math.ceil(amount / (5 * 12 * monthlyCost));
+  const quantity = Math.ceil(amount / (13 * monthlyCost));
   const period = Math.floor(amount / (quantity * monthlyCost));
   const years = Math.floor(period / 12);
   const months = period - years * 12;
