@@ -12,7 +12,7 @@ const options = [
       single: 'habitante',
       multi: 'habitantes',
     },
-    monthlyCost: 3.48 * 30,
+    monthlyCost: 3.48 * 30.4,
     img: 'assets/saude.jpg',
   },
   {
