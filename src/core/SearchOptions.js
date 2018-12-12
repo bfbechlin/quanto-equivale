@@ -9,7 +9,7 @@ const options = [
     link: 'http://agenciabrasil.ebc.com.br/saude/noticia/2018-11/brasil-gasta-r-348-por-dia-com-saude-de-cada-habitante-diz-cfm',
     message: 'Com {amount} é possível cobrir o investimento de {quantity} {subject} em saúde pelo período de {period}.',
     subject: {
-      single: 'habibitante',
+      single: 'habitante',
       multi: 'habitantes',
     },
     monthlyCost: 3.48 * 30,
