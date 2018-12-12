@@ -7,6 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { FacebookShareButton, WhatsAppShareButton } from './ShareButtons';
+import { newGAEvent, EVENTS } from '../../core/GoogleAnalytics';
 
 const styles = theme => ({
   card: {
@@ -27,6 +28,7 @@ function DescriptionCard({
   const { img, label, link } = searchOption;
   const redirect = () => {
     const win = window.open(link, '_blank');
+    newGAEvent(EVENTS.SOURCE, label);
     win.focus();
   };
   return (

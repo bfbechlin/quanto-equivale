@@ -21,6 +21,7 @@ export const EVENTS = {
   SEARCH_VIEW: 'search - view',
   SEARCH_TRACK: 'search - track',
   SHARE: 'share',
+  SOURCE: 'source',
 };
 
 export const SHARE_TYPES = {
